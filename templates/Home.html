@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url("/static/web_application.jpg");
+  background-size: 1500px;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: gray;
+  display: flex;
+  justify-content: space-between;
+  backdrop-filter: blur(10px);
+  padding: 10px;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.navbar-brand img {
+  height: 50px;
+  margin-right: 10px;
+}
+
+.right-links {
+  display: flex;
+  align-items: center;
+}
+
+.right-links a {
+  margin-left: 10px;
+  color: white;
+}
+
+h1 {
+  font-weight: bold;
+  margin-top: 150px;
+  margin-left: 50px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text {
+font-weight: bold;
+font-size: 20px;
+  text-align: center;
+}
+button {
+  background-color: #04AA6D;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 10px 20px;
+  margin-Top: 10px;
+}
+
+.about {
+  display: flex;
+  flex-direction: row;
+  background-color: gray;
+  padding: 70px;
+  color: white;
+
+}
+
+.about p {
+  margin: 0;
+  flex: 1;
+  text-align: justify;
+}
+
+.about h2 {
+  margin-top: 0;
+  margin-bottom: 50px;
+  font-size: 36px;
+  font-weight: bold;
+  flex: 1;
+  text-align: center;
+}
+.benefits {
+  display: flex;
+  flex-direction: row;
+  background-color: #f2f2f2;
+  padding: 50px;
+}
+
+.benefits h1 {
+  margin-top: 0;
+  margin-bottom: 50px;
+  font-size: 36px;
+  font-weight: bold;
+  flex: 1;
+  text-align: center;
+}
+
+.benefits p {
+  margin: 0;
+  flex: 1;
+  text-align: justify;
+}
+
+.benefits ul {
+  list-style: none;
+  padding: 0;
+  flex: 1;
+}
+
+.benefits li {
+  margin: 10px 0;
+}
+
+.blue-section {
+  display: flex;
+  flex-direction: row;
+  background-color: #00bfff;
+  padding: 50px;
+  color: white;
+}
+
+.blue-section h2 {
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-size: 36px;
+  font-weight: bold;
+  flex: 1;
+  text-align: center;
+}
+
+.blue-section p {
+  margin: 0;
+  flex: 1;
+  text-align: justify;
+}
+
+.blue-section ul {
+  list-style: none;
+  padding: 0;
+  flex: 1;
+}
+
+.blue-section li {
+  margin: 10px 0;
+}
+
+.blue-section .column {
+  flex: 1;
+}
+
+.user-reviews {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: gray;
+    padding: 50px;
+    color: white;
+  }
+
+  .user-reviews h2 {
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .user-reviews .review-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin-bottom: 50px;
+  }
+
+  .user-reviews .review-container .review {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .user-reviews .review-container .review.active {
+    display: flex;
+  }
+
+  .user-reviews .review-container .review img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+  }
+
+  .user-reviews .review-container .review p {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .user-reviews .nav-arrows {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .user-reviews .nav-arrows button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    margin: 0 10px;
+  }
+
+  .user-reviews .nav-arrows button:focus {
+    outline: none;
+  }
+
+.text-footer {
+			text-align: center;
+			padding: 30px 0;
+			font-family: 'Ubuntu', sans-serif;
+			display: flex;
+			justify-content: center;
+		}
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <a class="navbar-brand" href="/">
+    <img src="/static/182119_web.jpg" alt="Logo">
+    Web App Fake News Detection
+  </a>
+  <div class="right-links">
+    <a href="/">Home</a>
+    <a href="/index.html">Predict</a>
+  </div>
+</div>
+
+<h1>Fake News Detection
+  <br>Machine Learning and NLP Project</h1>
+<br>
+<p class="fake-news-text">Fake news is a term used to describe false or misleading information presented as if it were true, often with the intention of deceiving people.
+  <br> It can take the form of news articles, social media posts, videos, images, or other types of content.
+  <br>The spread of fake news has become a major problem in recent years and
+  <br>we've developed a machine learning and natural language processing project to help combat it</p>
+<div class="container">
+  <p class="text">Click below to Predict News Article </p>
+  <button onclick="location.href='index.html'">Predict</button>
+</div>
+<br>
+<br>
+<br>
+<div class="about">
+  <h2>About Us</h2>
+  <p>Our website is dedicated to helping people detect fake news. We've developed a machine learning and natural language processing project that can analyze news articles and determine the likelihood that they contain false or misleading information. Our goal is to provide people with a powerful tool for combating the spread of fake news and promoting truth and accuracy in media.</p>
+</div>
+
+<div class = "benefits">
+   <h1> Benefits </h1>
+    <ul>
+      <li>Convenience: Users can access and use the platform from any device with an internet connection.</li>
+      <li>Time-saving: The web application's intuitive interface and streamlined processes help users complete tasks quickly and efficiently.</li>
+    </ul>
+</div>
+
+
+ <div class="user-reviews">
+    <h2>User Reviews</h2>
+    <div class="review-container">
+      <div class="review active">
+        <img src="/static/mark.jpg" alt="Mark">
+        <p>"I recently used this fake news detection website to fact-check an article I came across on social media, and I was impressed with the accuracy and speed of the tool.
+          <br>The website was easy to use and provided a clear analysis of the article.
+          <br>Overall, I highly recommend this website to anyone looking to stay informed and combat the spread of misinformation online."<br>- Mark Doe</p>
+      </div>
+      <div class="review">
+        <img src="/static/jerry.jpg" alt="Jerry">
+        <p>"As someone who's tired of the constant barrage of fake news and propaganda, I was thrilled to come across this fake news detection website.
+          <br>The website's simple and user-friendly interface made it easy to fact-check any news article, and I found the results to be very reliable.
+          <br> Overall, I think this website is an essential tool for anyone looking to stay informed and discern fact from fiction in today's media landscape."<br>- Jerry Smith</p>
+      </div>
+      <div class="review">
+        <img src="/static/Jack.jpg" alt="Jack Sparrow">
+        <p>"I was skeptical at first about the effectiveness of fake news detection tools, but this website proved me wrong.
+          <br>The tool was very easy to use and delivered fast and accurate results.
+          <br>I was able to verify the credibility of an article in a matter of seconds, which saved me a lot of time and headache.
+          <br>The website has become an essential tool for me, and I highly recommend it to anyone looking to cut through the noise and find the truth in today's media landscape."<br>- Jack Sparrow</p>
+      </div>
+    </div>
+    <div class="nav-arrows">
+      <button class="prev" disabled>&#8592;</button>
+      <button class="next">&#8594;</button>
+    </div>
+  </div>
+
+<div style="text-align: center;">
+  <div class="contact">
+    <h2>Contact Us</h2>
+    <p>If you have any questions or feedback, please feel free to contact us:</p>
+    <p>Email: ompatel31012001@gmail.com</p>
+    <button>Contact Us</button>
+  </div>
+</div>
+
+
+
+  <script>
+  const reviews = document.querySelectorAll('.review');
+  const prevBtn = document.querySelector('.prev');
+  const nextBtn = document.querySelector('.next');
+  let currentReviewIndex = 0;
+
+  function showReview(index) {
+    reviews[currentReviewIndex].classList.remove('active');
+    currentReviewIndex = index;
+    reviews[currentReviewIndex].classList.add('active');
+
+    if (currentReviewIndex === 0) {
+      prevBtn.disabled = true;
+    } else {
+      prevBtn.disabled = false;
+    }
+
+    if (currentReviewIndex === reviews.length - 1) {
+      nextBtn.disabled = true;
+    } else {
+      nextBtn.disabled = false;
+    }
+  }
+
+  prevBtn.addEventListener('click', () => {
+    showReview(currentReviewIndex - 1);
+  });
+
+  nextBtn.addEventListener('click', () => {
+    showReview(currentReviewIndex + 1);
+  });
+
+  showReview(currentReviewIndex);
+</script>
+
+<footer class="background">
+		<p class="text-footer">
+			Copyright ©-All rights are reserved
+		</p>
+
+
+	</footer>
+
+
+</body>
+</html>
